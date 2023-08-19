@@ -20,6 +20,5 @@ jobs:
       - name: Setup Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 34
-          arch: x86_64
+          api-level: 29
           script: mvn clean test
