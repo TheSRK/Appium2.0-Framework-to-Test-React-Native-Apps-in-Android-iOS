@@ -12,7 +12,8 @@ target/
 *.iml
 *.ipr
 .idea
-apps
+apps/androidRespond.apk
+apps/iOS-Simulator-MyRNDemoApp.1.3.0-162.zip
 logs
 AppiumLog.txt
 src/test/resources/credentials.json
