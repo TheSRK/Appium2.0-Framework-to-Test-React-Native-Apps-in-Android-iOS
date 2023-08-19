@@ -20,19 +20,17 @@ jobs:
           appium driver install uiautomator2
           appium &>/dev/null &
 
-      - name: Setup Emulator
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-
       - name: Restore Maven cache
         uses: skjolber/maven-cache-github-action@v1
         with:
           step: restore
         continue-on-error: true
 
-      - name: Run tests
-        run: mvn clean test
+      - name: Setup Emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: mvn clean test
 
       - name: Save Maven cache
         uses: skjolber/maven-cache-github-action@v1
