@@ -13,16 +13,11 @@ jobs:
       - name: Pull the codebase in the test runner
         uses: actions/checkout@v3
 
-      - name: Delete .gitignore files
-        run: rm .gitignore
-
       - name: Upload App Files as Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: app-files
-          path: |
-            apps/androidRespond.apk
-            apps/iOS-Simulator-MyRNDemoApp.1.3.0-162.zip
+          path: apps/iOS-Simulator-MyRNDemoApp.1.3.0-162.zip
       - name: Setup appium
         run: |
           npm i --location=global appium
