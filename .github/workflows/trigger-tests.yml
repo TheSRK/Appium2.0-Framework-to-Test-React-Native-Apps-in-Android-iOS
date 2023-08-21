@@ -13,6 +13,9 @@ jobs:
       - name: Pull the codebase in the test runner
         uses: actions/checkout@v3
 
+      - name: Delete .gitignore files
+        run: find ./out -name ".gitignore" -delete
+
       - name: Setup appium
         run: |
           npm i --location=global appium
