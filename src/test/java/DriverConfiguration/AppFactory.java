@@ -8,6 +8,7 @@ import io.appium.java_client.ios.options.XCUITestOptions;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 public class AppFactory {
     public static void launchApp(String platformName, AppiumDriver appiumDriver) throws MalformedURLException {
@@ -17,6 +18,11 @@ public class AppFactory {
             //options.setDeviceName("Pixel_3a_API_34_extension_level_7_arm64-v8a");
             options.setDeviceName("emulator-5554");
             options.setApp(System.getProperty("user.dir")+"/apps/androidRespond.apk");
+            options.setClearSystemFiles(true);
+            options.setAllowTestPackages(true);
+            options.setAppWaitDuration(Duration.ofSeconds(6000));
+            options.setAutoGrantPermissions(true);
+            options.setAppWaitForLaunch(true);
             options.fullReset();
 
             appiumDriver = new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
