@@ -31,7 +31,6 @@ jobs:
         run: |
           npm i --location=global appium
           appium --version
-          appium driver install uiautomator2
           appium &>/dev/null &
 
       - name: Restore Maven cache
@@ -44,7 +43,22 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: mvn clean test
+          arch: x86
+          profile: Nexus 5X
+          heap-size: 2048m
+          sdk-platform: android-29
+          abi: x86
+          locale: en_US
+          timezone: America/Los_Angeles
+          emulator-build: system-images;android-29;default;x86_64
+          emulator-build-revision: 6
+          emulator-options: -no-window -no-audio -no-boot-anim -no-accel -gpu swiftshader_indirect -verbose -qemu -enable-kvm
+          script: |
+                #!/usr/bin/env bash
+                adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done; input keyevent 82'
+                adb devices
+                adb shell input keyevent
+                mvn clean test
 
       - name: Save Maven cache
         uses: skjolber/maven-cache-github-action@v1
