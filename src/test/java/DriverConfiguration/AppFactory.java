@@ -14,7 +14,8 @@ public class AppFactory {
 
         if (platformName.equalsIgnoreCase("Android")){
             UiAutomator2Options options = new UiAutomator2Options();
-            options.setDeviceName("Pixel_3a_API_34_extension_level_7_arm64-v8a");
+            //options.setDeviceName("Pixel_3a_API_34_extension_level_7_arm64-v8a");
+            options.setDeviceName("emulator-5554");
             options.setApp(System.getProperty("user.dir")+"/apps/androidRespond.apk");
             options.fullReset();
 

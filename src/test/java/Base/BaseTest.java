@@ -33,7 +33,7 @@ import java.util.Collections;
 public class BaseTest {
    @BeforeTest
     public static void setup() throws MalformedURLException {
-        //AppiumServer.start();
+        AppiumServer.start();
         AppDriverManager.initDriver();
        System.out.println("driver value in setup method: "+AppDriverManager.getAppiumDriver());
     }
@@ -106,6 +106,6 @@ public class BaseTest {
       System.out.println("driver value before quit: "+AppDriverManager.getAppiumDriver());
         AppDriverManager.getAppiumDriver().quit();
       System.out.println("driver value after quit: "+AppDriverManager.getAppiumDriver());
-        //AppiumServer.stop();
+        AppiumServer.stop();
     }
 }
