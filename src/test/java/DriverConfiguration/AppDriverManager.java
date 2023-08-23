@@ -10,7 +10,7 @@ public class AppDriverManager {
     public static AppiumDriver appiumDriver=null;
     public static void initDriver() throws MalformedURLException {
         if (appiumDriver == null){
-            AppFactory.launchApp("ios", appiumDriver);
+            AppFactory.launchApp("android", appiumDriver);
         }
 
     }

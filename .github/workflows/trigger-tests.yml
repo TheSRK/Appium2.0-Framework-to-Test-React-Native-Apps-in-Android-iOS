@@ -13,11 +13,20 @@ jobs:
       - name: Pull the codebase in the test runner
         uses: actions/checkout@v3
 
-      - name: Upload App Files as Artifacts
-        uses: actions/upload-artifact@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          name: app-files
-          path: apps/iOS-Simulator-MyRNDemoApp.1.3.0-162.zip
+          python-version: 3.x
+
+      - name: Install gdown
+        run: |
+          pip install gdown
+
+      - name: Download Large File
+        run: |
+          mkdir -p apps
+          gdown https://drive.google.com/uc?id=1c7tCwHSCEtfPu1MA2k3rEP1MoFoKg6S3 -O apps/androidRespond.apk
+
       - name: Setup appium
         run: |
           npm i --location=global appium
@@ -25,19 +34,11 @@ jobs:
           appium driver install uiautomator2
           appium &>/dev/null &
 
-
-
       - name: Restore Maven cache
         uses: skjolber/maven-cache-github-action@v1
         with:
           step: restore
         continue-on-error: true
-
-      - name: Download App Files
-        uses: actions/download-artifact@v2
-        with:
-          name: app-files
-          path: apps/
 
       - name: Setup Emulator
         uses: reactivecircus/android-emulator-runner@v2
