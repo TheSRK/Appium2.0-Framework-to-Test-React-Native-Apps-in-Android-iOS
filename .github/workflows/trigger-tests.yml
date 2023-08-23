@@ -43,16 +43,6 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          arch: x86_64   # Specify the correct architecture
-          profile: Nexus 5X
-          heap-size: 2048m
-          sdk-platform: android-29
-          abi: x86_64    # Specify the correct ABI
-          locale: en_US
-          timezone: America/Los_Angeles
-          emulator-build: system-images;android-29;default;x86_64
-          emulator-build-revision: 6
-          emulator-options: -no-window -no-audio -no-boot-anim -no-accel -gpu swiftshader_indirect -verbose -qemu -enable-kvm
           script: |
                 #!/usr/bin/env bash
                 adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done; input keyevent 82'
