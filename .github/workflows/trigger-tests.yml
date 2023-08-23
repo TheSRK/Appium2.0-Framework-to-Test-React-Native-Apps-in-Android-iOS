@@ -26,6 +26,8 @@ jobs:
         run: |
           mkdir -p apps
           gdown https://drive.google.com/uc?id=1c7tCwHSCEtfPu1MA2k3rEP1MoFoKg6S3 -O apps/androidRespond.apk
+          gdown https://drive.google.com/uc?id=1apqwS5sn7A2jAqmrVDHuD9C2KDHFJTpX -O src/test/resources/credentials.json
+          
 
       - name: Setup appium
         run: |
