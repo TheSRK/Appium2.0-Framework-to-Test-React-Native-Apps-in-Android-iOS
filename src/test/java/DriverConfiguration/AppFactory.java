@@ -23,6 +23,11 @@ public class AppFactory {
             options.setAppWaitDuration(Duration.ofSeconds(6000));
             options.setAutoGrantPermissions(true);
             options.setAppWaitForLaunch(true);
+            options.setAdbExecTimeout(Duration.ofSeconds(6000));
+            options.setAndroidInstallTimeout(Duration.ofSeconds(6000));
+            options.setUiautomator2ServerLaunchTimeout(Duration.ofSeconds(6000));
+            options.setUiautomator2ServerInstallTimeout(Duration.ofSeconds(6000));
+            options.setUiautomator2ServerReadTimeout(Duration.ofSeconds(6000));
             options.fullReset();
 
             appiumDriver = new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
