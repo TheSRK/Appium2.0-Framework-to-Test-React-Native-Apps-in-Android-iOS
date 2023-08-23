@@ -43,11 +43,11 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          arch: x86
+          arch: x86_64   # Specify the correct architecture
           profile: Nexus 5X
           heap-size: 2048m
           sdk-platform: android-29
-          abi: x86
+          abi: x86_64    # Specify the correct ABI
           locale: en_US
           timezone: America/Los_Angeles
           emulator-build: system-images;android-29;default;x86_64
