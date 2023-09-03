@@ -11,9 +11,9 @@ import java.util.Map;
 
 
 public class JSONReader {
-   @Getter @Setter
+   //@Getter @Setter
     private static String email;
-   @Getter @Setter
+  // @Getter @Setter
     private static String password;
 
     static String filePath = System.getProperty("user.dir") + "/src/test/resources/credentials.json";
@@ -47,4 +47,19 @@ public class JSONReader {
         }
     }
 
+    public static String getEmail() {
+        return email;
+    }
+
+    public static void setEmail(String email) {
+        JSONReader.email = email;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
+
+    public static void setPassword(String password) {
+        JSONReader.password = password;
+    }
 }

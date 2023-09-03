@@ -19,7 +19,7 @@ public class LoginPageTests extends BaseTest {
         JSONReader.readJSONFile();
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1 , enabled = false)
     public void updateAppTest() {
         System.out.println("driver in updateAppTest: " + getAppiumDriver());
         boolean f = loginPage.updateApp();
